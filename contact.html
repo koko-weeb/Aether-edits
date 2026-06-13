@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Aether Editing</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">AETHER<span class="accent">.</span></a>
+    <div class="nav-center"><span class="nav-line"></span></div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="mobile-overlay" id="mobileOverlay">
+    <ul>
+      <li><a href="index.html" onclick="closeMenu()">Home</a></li>
+      <li><a href="services.html" onclick="closeMenu()">Services</a></li>
+      <li><a href="portfolio.html" onclick="closeMenu()">Portfolio</a></li>
+      <li><a href="contact.html" onclick="closeMenu()">Contact</a></li>
+    </ul>
+    <div class="mobile-socials">
+      <a href="mailto:your@email.com">Email</a>
+      <a href="#" target="_blank">YouTube</a>
+      <a href="#" target="_blank">Instagram</a>
+    </div>
+  </div>
+
+  <section class="page-hero">
+    <div class="page-hero-bg"><div class="page-hero-grid"></div></div>
+    <div class="container page-hero-content">
+      <p class="section-tag">Get In Touch</p>
+      <h1 class="page-title">Let's Build<br>Something Together</h1>
+      <p class="page-sub">Tell me about your project — I respond within 24 hours.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT MAIN -->
+  <section class="section contact-section">
+    <div class="container contact-grid">
+
+      <!-- LEFT: INFO -->
+      <div class="contact-info">
+        <div class="ci-block">
+          <p class="section-tag">Direct Links</p>
+          <h2 class="section-title" style="font-size:clamp(1.6rem,3vw,2.4rem)">Reach Out<br>Your Way</h2>
+          <p class="ci-body">Whether you have a full brief or just an idea — get in touch. I'll help you figure out the rest.</p>
+        </div>
+
+        <div class="ci-contacts">
+          <a href="mailto:your@email.com" class="ci-item">
+            <span class="ci-icon">✉</span>
+            <div>
+              <strong>Email</strong>
+              <span>your@email.com</span>
+            </div>
+          </a>
+          <a href="https://youtube.com/@yourhandle" target="_blank" class="ci-item">
+            <span class="ci-icon">▶</span>
+            <div>
+              <strong>YouTube</strong>
+              <span>@yourhandle</span>
+            </div>
+          </a>
+          <a href="https://instagram.com/yourhandle" target="_blank" class="ci-item">
+            <span class="ci-icon">◈</span>
+            <div>
+              <strong>Instagram</strong>
+              <span>@yourhandle</span>
+            </div>
+          </a>
+          <a href="https://twitter.com/yourhandle" target="_blank" class="ci-item">
+            <span class="ci-icon">✦</span>
+            <div>
+              <strong>Twitter / X</strong>
+              <span>@yourhandle</span>
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/yourprofile" target="_blank" class="ci-item">
+            <span class="ci-icon">◎</span>
+            <div>
+              <strong>LinkedIn</strong>
+              <span>Your Name</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="ci-availability">
+          <span class="avail-dot"></span>
+          <span>Currently accepting new projects</span>
+        </div>
+      </div>
+
+      <!-- RIGHT: FORM -->
+      <div class="contact-form-wrap">
+        <div class="contact-form-card">
+          <div class="form-bracket tl"></div>
+          <div class="form-bracket tr"></div>
+          <div class="form-bracket bl"></div>
+          <div class="form-bracket br"></div>
+
+          <h3 class="form-title">Send a Message</h3>
+          <p class="form-sub">Fill out the form and I'll get back to you within 24h.</p>
+
+          <div id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" placeholder="John Doe" autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="john@email.com" autocomplete="email">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="service">Service Needed</label>
+              <select id="service">
+                <option value="" disabled selected>Select a service...</option>
+                <option>AI Generated Videos</option>
+                <option>Motion Graphics</option>
+                <option>Typography Style</option>
+                <option>Podcast Editing</option>
+                <option>Finance Guru Style</option>
+                <option>Did You Know Videos</option>
+                <option>Motivational Videos</option>
+                <option>Informational Videos</option>
+                <option>Vlogs</option>
+                <option>Gaming Content</option>
+                <option>Short-Form Content</option>
+                <option>Custom / Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="budget">Budget Range</label>
+              <select id="budget">
+                <option value="" disabled selected>Select budget...</option>
+                <option>Under ₹5,000</option>
+                <option>₹5,000 – ₹15,000</option>
+                <option>₹15,000 – ₹30,000</option>
+                <option>₹30,000 – ₹50,000</option>
+                <option>₹50,000+</option>
+                <option>Let's discuss</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Project Details</label>
+              <textarea id="message" rows="5" placeholder="Tell me about your project — what you need, your audience, and any references..."></textarea>
+            </div>
+            <button class="btn-primary btn-full" onclick="submitForm()">Send Message →</button>
+          </div>
+
+          <div id="formSuccess" class="form-success hidden">
+            <div class="success-icon">✓</div>
+            <h4>Message Sent!</h4>
+            <p>I'll get back to you within 24 hours. Check your email for a confirmation.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section">
+    <div class="container">
+      <div class="section-header centered">
+        <p class="section-tag">Quick Answers</p>
+        <h2 class="section-title">Common Questions</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">How long does an edit take? <span class="faq-arrow">+</span></div>
+          <div class="faq-a">Most projects are delivered within 48–72 hours. Longer videos (30+ min) may take 4–5 business days. Rush delivery is available on request.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">What files do I need to send? <span class="faq-arrow">+</span></div>
+          <div class="faq-a">Raw footage, any assets (music, logos, references), and a brief. I'll guide you through anything else we need.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">How many revisions do I get? <span class="faq-arrow">+</span></div>
+          <div class="faq-a">Unlimited revisions within scope until you're satisfied. I don't deliver until the edit is right.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">What software do you use? <span class="faq-arrow">+</span></div>
+          <div class="faq-a">Primarily Adobe Premiere Pro, After Effects, and DaVinci Resolve. Also fluent in CapCut for short-form content.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">Do you handle music licensing? <span class="faq-arrow">+</span></div>
+          <div class="faq-a">Yes — I source from royalty-free libraries (Epidemic Sound, Artlist) and can advise on licensing for your platform and use case.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="nav-logo">AETHER<span class="accent">.</span></span>
+        <p>Precision video editing for creators who want to stand out.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Socials</h4>
+          <a href="#" target="_blank">YouTube</a>
+          <a href="#" target="_blank">Instagram</a>
+          <a href="#" target="_blank">Twitter / X</a>
+          <a href="#" target="_blank">LinkedIn</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:your@email.com">your@email.com</a>
+          <a href="contact.html">Send a Message</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Aether Editing. All rights reserved.</p>
+      <p class="footer-tag">Built with precision.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

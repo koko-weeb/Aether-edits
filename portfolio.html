@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — Aether Editing</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav-logo">AETHER<span class="accent">.</span></a>
+    <div class="nav-center"><span class="nav-line"></span></div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html" class="active">Portfolio</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="mobile-overlay" id="mobileOverlay">
+    <ul>
+      <li><a href="index.html" onclick="closeMenu()">Home</a></li>
+      <li><a href="services.html" onclick="closeMenu()">Services</a></li>
+      <li><a href="portfolio.html" onclick="closeMenu()">Portfolio</a></li>
+      <li><a href="contact.html" onclick="closeMenu()">Contact</a></li>
+    </ul>
+    <div class="mobile-socials">
+      <a href="mailto:your@email.com">Email</a>
+      <a href="#" target="_blank">YouTube</a>
+      <a href="#" target="_blank">Instagram</a>
+    </div>
+  </div>
+
+  <section class="page-hero">
+    <div class="page-hero-bg">
+      <div class="page-hero-grid"></div>
+    </div>
+    <div class="container page-hero-content">
+      <p class="section-tag">Work Showcase</p>
+      <h1 class="page-title">150+ Projects.<br>One Standard.</h1>
+      <p class="page-sub">Browse edits across every style and niche — click to view any project.</p>
+    </div>
+  </section>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar-wrap">
+    <div class="container filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="ai">AI Videos</button>
+      <button class="filter-btn" data-filter="motion">Motion</button>
+      <button class="filter-btn" data-filter="podcast">Podcast</button>
+      <button class="filter-btn" data-filter="gaming">Gaming</button>
+      <button class="filter-btn" data-filter="vlog">Vlogs</button>
+      <button class="filter-btn" data-filter="motivational">Motivational</button>
+      <button class="filter-btn" data-filter="finance">Finance</button>
+    </div>
+  </div>
+
+  <!-- PORTFOLIO GRID -->
+  <section class="section portfolio-section">
+    <div class="container">
+      <div class="portfolio-grid" id="portfolioGrid">
+
+        <div class="port-card reveal" data-cat="ai motion">
+          <div class="port-thumb">
+            <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?w=700&q=80" alt="AI City Timelapse">
+            <div class="port-overlay">
+              <span class="play-btn">▶</span>
+              <div class="port-info">
+                <h4>AI City Timelapse</h4>
+                <span>AI Generated · Motion Graphics</span>
+              </div>
+            </div>
+          </div>
+          <div class="port-meta">
+            <span class="port-cat-tag">AI Video</span>
+            <span class="port-duration">2:34</span>
+          </div>
+        </div>
+
+        <div class="port-card reveal" data-cat="motion">
+          <div class="port-thumb">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=700&q=80" alt="Neon Brand Reveal">
+            <div class="port-overlay">
+              <span class="play-btn">▶</span>
+              <div class="port-info">
+                <h4>Neon Brand Reveal</h4>
+                <span>Motion Graphics</span>
+              </div>
+            </div>
+          </div>
+          <div class="port-meta">
+            <span class="port-cat-tag">Motion</span>
+            <span class="port-duration">0:45</span>
+          </div>
+        </div>
+
+        <div class="port-card reveal" data-cat="podcast">
+          <div class="port-thumb">
+            <img src="https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=700&q=80" alt="Deep Dive Podcast">
+            <div class="port-overlay">
+              <span class="play-btn">▶</span>
+              <div class="port-info">
+                <h4>Deep Dive Podcast Ep. 12</h4>
+                <span>Podcast Editing</span>
+              </div>
+            </div>
+          </div>
+          <div class="port-meta">
+            <span class="port-cat-tag">Podcast</span>
+            <span class="port-duration">44:10</span>
+          </div>
+        </div>
+
+        <div class="port-card reveal" data-cat="gaming">
+          <div class="port-thumb">
+            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=700&q=80" alt="FPS Highlights Reel">
+            <div class="port-overlay">
+              <span class="play-btn">▶</span>
+              <div class="port-info">
+                <h4>FPS Highlights Reel</h4>
+                <span>Gaming Content</span>
+              </div>
+            </div>
+          </div>
+          <div class="port-meta">
+            <span class="port-cat-tag">Gaming</span>
+            <span class="port-duration">8:22</span>
+          </div>
+        </div>
+
+        <div class="port-card reveal" data-cat="vlog">
+          <div class="port-thumb">
+            <img src="https://images.unsplash.com/photo-1502920514313-52581002a659?w=700&q=80" alt="Tokyo Solo Travel">
+            <div class="port-overlay">
+              <span class="play-btn">▶</span>
+              <div class="port-info">
+                <h4>Tokyo Solo Travel</h4>
+                <span>Vlog</span>
+              </div>
+            </div>
+          </div>
+          <div class="port-meta">
+            <span class="port-cat-tag">Vlog</span>
+            <span class="port-duration">12:05</span>
+          </div>
+        </div>
+
+        <div class="port-card reveal" data-cat="motivational">
+          <div class="port-thumb">
+            <img src="https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=700&q=80" alt="Rise Up — Motivational">
+            <div class="port-overlay">
+              <span class="play-btn">▶</span>
+              <div class="port-info">
+                <h4>Rise Up</h4>
+                <span>Motivational Video</span>
+              </div>
+            </div>
+          </div>
+          <div class="port-meta">
+            <span class="port-cat-tag">Motivational</span>
+            <span class="port-duration">3:17</span>
+          </div>
+        </div>
+
+        <div class="port-card reveal" data-cat="finance">
+          <div class="port-thumb">
+            <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=700&q=80" alt="Stock Market Explained">
+            <div class="port-overlay">
+              <span class="play-btn">▶</span>
+              <div class="port-info">
+                <h4>Stock Market Explained</h4>
+                <span>Finance Guru Style</span>
+              </div>
+            </div>
+          </div>
+          <div class="port-meta">
+            <span class="port-cat-tag">Finance</span>
+            <span class="port-duration">18:44</span>
+          </div>
+        </div>
+
+        <div class="port-card reveal" data-cat="ai">
+          <div class="port-thumb">
+            <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=700&q=80" alt="AI Future World">
+            <div class="port-overlay">
+              <span class="play-btn">▶</span>
+              <div class="port-info">
+                <h4>The AI Future World</h4>
+                <span>AI Generated · Did You Know</span>
+              </div>
+            </div>
+          </div>
+          <div class="port-meta">
+            <span class="port-cat-tag">AI Video</span>
+            <span class="port-duration">5:50</span>
+          </div>
+        </div>
+
+        <div class="port-card reveal" data-cat="motion vlog">
+          <div class="port-thumb">
+            <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=700&q=80" alt="Cinematic Brand Film">
+            <div class="port-overlay">
+              <span class="play-btn">▶</span>
+              <div class="port-info">
+                <h4>Cinematic Brand Film</h4>
+                <span>Motion · Brand</span>
+              </div>
+            </div>
+          </div>
+          <div class="port-meta">
+            <span class="port-cat-tag">Motion</span>
+            <span class="port-duration">1:30</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section testimonials-section">
+    <div class="container">
+      <div class="section-header centered">
+        <p class="section-tag">Client Words</p>
+        <h2 class="section-title">What Creators Say</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p>"The editing transformed my raw footage into something I'm genuinely proud to post. The pacing is perfect and the colour grade is stunning."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">MR</div>
+            <div>
+              <strong>Mike R.</strong>
+              <span>Finance YouTuber · 85K subs</span>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p>"Delivered ahead of schedule, communicated throughout, and the final product exceeded every expectation. Will absolutely be working together again."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">SA</div>
+            <div>
+              <strong>Sofia A.</strong>
+              <span>Travel Vlogger · 200K subs</span>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p>"Best gaming editor I've worked with. Knows the format, knows the audience, and consistently delivers bangers. Non-negotiable part of my team now."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">KP</div>
+            <div>
+              <strong>KP Plays</strong>
+              <span>Gaming Channel · 1.2M subs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="cta-band-bg"></div>
+    <div class="container cta-band-inner">
+      <h2>Want Your Project<br>Here Next?</h2>
+      <a href="contact.html" class="btn-primary btn-large">Start Now</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="nav-logo">AETHER<span class="accent">.</span></span>
+        <p>Precision video editing for creators who want to stand out.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <a href="index.html">Home</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Socials</h4>
+          <a href="#" target="_blank">YouTube</a>
+          <a href="#" target="_blank">Instagram</a>
+          <a href="#" target="_blank">Twitter / X</a>
+          <a href="#" target="_blank">LinkedIn</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <a href="mailto:your@email.com">your@email.com</a>
+          <a href="contact.html">Send a Message</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Aether Editing. All rights reserved.</p>
+      <p class="footer-tag">Built with precision.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
