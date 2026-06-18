@@ -3,26 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ether Creatives — You Create, We Provide</title>
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Professional video editing services for creators. AI-generated visuals, motion graphics, podcast editing, and cinematic vlogs. Fast turnaround, unlimited revisions.">
+  <meta name="keywords" content="video editing, motion graphics, podcast editing, AI videos, content creation">
+  <meta name="author" content="Ether Creatives">
   <meta http-equiv="X-Frame-Options" content="DENY">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; img-src 'self' https: data:; frame-src https://www.youtube.com; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com;">
-  <link rel="stylesheet" href="style-1.css">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; img-src 'self' https: data:; frame-src https://www.youtube.com; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com">
+  
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="Ether Creatives — Professional Video Editing">
+  <meta property="og:description" content="Video editing that cuts through noise. From AI-generated visuals to cinematic vlogs — every frame, deliberate.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ethercreatives.com">
+  <meta name="theme-color" content="#050608">
+
+  <title>Ether Creatives — Professional Video Editing for Creators</title>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style-1.css">
 </head>
 <body>
 
+  <!-- Skip to Main Content Link -->
+  <a href="#main-content" class="sr-only">Skip to main content</a>
+
   <!-- NAV -->
-  <nav class="nav" id="nav">
+  <nav class="nav" id="nav" aria-label="Primary Navigation">
     <a href="index.html" class="nav-logo">ETHER CREATIVES<span class="accent">.</span></a>
-    <div class="nav-center">
+    <div class="nav-center" aria-hidden="true">
       <span class="nav-line"></span>
     </div>
-    <button class="hamburger" id="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+      <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
     </button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index-1.html" class="active">Home</a></li>
+      <li><a href="index-1.html" class="active" aria-current="page">Home</a></li>
       <li><a href="services.html">Services</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -30,7 +48,7 @@
   </nav>
 
   <!-- MOBILE MENU OVERLAY -->
-  <div class="mobile-overlay" id="mobileOverlay">
+  <div class="mobile-overlay" id="mobileOverlay" role="navigation" aria-label="Mobile Navigation">
     <ul>
       <li><a href="index-1.html" onclick="closeMenu()">Home</a></li>
       <li><a href="services.html" onclick="closeMenu()">Services</a></li>
@@ -38,157 +56,177 @@
       <li><a href="contact.html" onclick="closeMenu()">Contact</a></li>
     </ul>
     <div class="mobile-socials">
-      <a id="email-mobile">Email</a>
+      <a id="email-mobile" href="mailto:catchimark@gmail.com">Email</a>
       <a href="https://youtube.com/@YourChannelName" target="_blank" rel="noopener noreferrer">YouTube</a>
       <a href="https://instagram.com/YourHandle" target="_blank" rel="noopener noreferrer">Instagram</a>
     </div>
   </div>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-scan"></div>
-    <div class="hero-bracket tl"></div>
-    <div class="hero-bracket tr"></div>
-    <div class="hero-bracket bl"></div>
-    <div class="hero-bracket br"></div>
+  <main id="main-content">
+    <!-- HERO -->
+    <section class="hero" aria-label="Hero Section">
+      <div class="hero-scan" aria-hidden="true"></div>
+      <div class="hero-bracket tl" aria-hidden="true"></div>
+      <div class="hero-bracket tr" aria-hidden="true"></div>
+      <div class="hero-bracket bl" aria-hidden="true"></div>
+      <div class="hero-bracket br" aria-hidden="true"></div>
 
-    <div class="hero-bg">
-      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=80" alt="" aria-hidden="true">
-      <div class="hero-overlay"></div>
-    </div>
+      <div class="hero-bg" aria-hidden="true">
+        <img 
+          src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=1600&q=80" 
+          alt="Creative video editing workspace with multiple screens"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high">
+        <div class="hero-overlay"></div>
+      </div>
 
-    <div class="hero-content">
-      <p class="hero-eyebrow"><span class="dot"></span> Available for Projects</p>
-      <h1 class="hero-title">
-        <span class="line1">YOU CREATE,</span>
-        <span class="line2">WE PROVIDE<span class="cursor-bar">|</span></span>
-      </h1>
-      <p class="hero-sub">Video editing that cuts through noise. From AI-generated visuals to cinematic vlogs — every frame, deliberate.</p>
-      <div class="hero-cta">
-        <a href="portfolio.html" class="btn-primary">View Work</a>
-        <a href="contact.html" class="btn-ghost">Start a Project →</a>
+      <div class="hero-content">
+        <p class="hero-eyebrow"><span class="dot"></span> Available for Projects</p>
+        <h1 class="hero-title">
+          <span class="line1">YOU CREATE,</span>
+          <span class="line2">WE PROVIDE<span class="cursor-bar" aria-hidden="true">|</span></span>
+        </h1>
+        <p class="hero-sub">Video editing that cuts through noise. From AI-generated visuals to cinematic vlogs — every frame, deliberate.</p>
+        <div class="hero-cta">
+          <a href="portfolio.html" class="btn-primary">View Work</a>
+          <a href="contact.html" class="btn-ghost">Start a Project →</a>
+        </div>
+      </div>
+
+      <div class="hero-stats" aria-label="Key Statistics">
+        <div class="stat">
+          <span class="stat-num">150+</span>
+          <span class="stat-label">Projects Delivered</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat">
+          <span class="stat-num">10+</span>
+          <span class="stat-label">Video Styles</span>
+        </div>
+        <div class="stat-divider" aria-hidden="true"></div>
+        <div class="stat">
+          <span class="stat-num">48h</span>
+          <span class="stat-label">Avg Turnaround</span>
+        </div>
+      </div>
+
+      <div class="scroll-hint" aria-hidden="true">
+        <span class="scroll-line"></span>
+        <span class="scroll-text">SCROLL</span>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee-wrap" aria-label="Services Marquee" role="region">
+      <div class="marquee-track" aria-hidden="true">
+        <span>AI VIDEOS</span><span class="sep">✦</span>
+        <span>MOTION GRAPHICS</span><span class="sep">✦</span>
+        <span>TYPOGRAPHY</span><span class="sep">✦</span>
+        <span>PODCAST EDITS</span><span class="sep">✦</span>
+        <span>GAMING CONTENT</span><span class="sep">✦</span>
+        <span>VLOGS</span><span class="sep">✦</span>
+        <span>FINANCE VIDEOS</span><span class="sep">✦</span>
+        <span>MOTIVATIONAL</span><span class="sep">✦</span>
+        <span>AI VIDEOS</span><span class="sep">✦</span>
+        <span>MOTION GRAPHICS</span><span class="sep">✦</span>
+        <span>TYPOGRAPHY</span><span class="sep">✦</span>
+        <span>PODCAST EDITS</span><span class="sep">✦</span>
+        <span>GAMING CONTENT</span><span class="sep">✦</span>
+        <span>VLOGS</span><span class="sep">✦</span>
+        <span>FINANCE VIDEOS</span><span class="sep">✦</span>
+        <span>MOTIVATIONAL</span><span class="sep">✦</span>
       </div>
     </div>
 
-    <div class="hero-stats">
-      <div class="stat"><span class="stat-num">150+</span><span class="stat-label">Projects Delivered</span></div>
-      <div class="stat-divider"></div>
-      <div class="stat"><span class="stat-num">10+</span><span class="stat-label">Video Styles</span></div>
-      <div class="stat-divider"></div>
-      <div class="stat"><span class="stat-num">48h</span><span class="stat-label">Avg Turnaround</span></div>
-    </div>
+    <!-- FEATURED SERVICES PREVIEW -->
+    <section class="section services-preview" aria-label="Featured Services">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-tag">What I Do</p>
+          <h2 class="section-title">Crafted for Every<br>Kind of Creator</h2>
+          <a href="services.html" class="section-link">All Services →</a>
+        </div>
 
-    <div class="scroll-hint">
-      <span class="scroll-line"></span>
-      <span class="scroll-text">SCROLL</span>
-    </div>
-  </section>
-
-  <!-- MARQUEE -->
-  <div class="marquee-wrap">
-    <div class="marquee-track">
-      <span>AI VIDEOS</span><span class="sep">✦</span>
-      <span>MOTION GRAPHICS</span><span class="sep">✦</span>
-      <span>TYPOGRAPHY</span><span class="sep">✦</span>
-      <span>PODCAST EDITS</span><span class="sep">✦</span>
-      <span>GAMING CONTENT</span><span class="sep">✦</span>
-      <span>VLOGS</span><span class="sep">✦</span>
-      <span>FINANCE VIDEOS</span><span class="sep">✦</span>
-      <span>MOTIVATIONAL</span><span class="sep">✦</span>
-      <span>AI VIDEOS</span><span class="sep">✦</span>
-      <span>MOTION GRAPHICS</span><span class="sep">✦</span>
-      <span>TYPOGRAPHY</span><span class="sep">✦</span>
-      <span>PODCAST EDITS</span><span class="sep">✦</span>
-      <span>GAMING CONTENT</span><span class="sep">✦</span>
-      <span>VLOGS</span><span class="sep">✦</span>
-      <span>FINANCE VIDEOS</span><span class="sep">✦</span>
-      <span>MOTIVATIONAL</span><span class="sep">✦</span>
-    </div>
-  </div>
-
-  <!-- FEATURED SERVICES PREVIEW -->
-  <section class="section services-preview">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-tag">What I Do</p>
-        <h2 class="section-title">Crafted for Every<br>Kind of Creator</h2>
-        <a href="services.html" class="section-link">All Services →</a>
-      </div>
-
-      <div class="services-grid-home">
-        <div class="service-card" data-index="01">
-          <div class="card-icon">◈</div>
-          <h3>AI Generated Videos</h3>
-          <p>Cutting-edge AI visuals paired with precision editing — future-ready content that captivates.</p>
-          <span class="card-tag">Trending</span>
-        </div>
-        <div class="service-card" data-index="02">
-          <div class="card-icon">⬡</div>
-          <h3>Motion Graphics</h3>
-          <p>Kinetic design in motion — logos, transitions, and visual effects that make brands unforgettable.</p>
-        </div>
-        <div class="service-card" data-index="03">
-          <div class="card-icon">◻</div>
-          <h3>Typography Style</h3>
-          <p>Word-driven videos where type becomes the visual — bold, rhythmic, and shareable.</p>
-        </div>
-        <div class="service-card" data-index="04">
-          <div class="card-icon">◎</div>
-          <h3>Podcast Editing</h3>
-          <p>Multi-cam cuts, clean audio sync, animated captions — turning raw recordings into polished content.</p>
-        </div>
-        <div class="service-card" data-index="05">
-          <div class="card-icon">▲</div>
-          <h3>Finance Guru Style</h3>
-          <p>Data visualizations, clean b-roll, authority framing — videos that build trust and credibility.</p>
-        </div>
-        <div class="service-card" data-index="06">
-          <div class="card-icon">❋</div>
-          <h3>Gaming Content</h3>
-          <p>High-energy highlights, commentary sync, dynamic transitions — content built for the gaming audience.</p>
+        <div class="services-grid-home" role="list">
+          <div class="service-card" data-index="01" role="listitem">
+            <div class="card-icon" aria-hidden="true">◈</div>
+            <h3>AI Generated Videos</h3>
+            <p>Cutting-edge AI visuals paired with precision editing — future-ready content that captivates.</p>
+            <span class="card-tag">Trending</span>
+          </div>
+          <div class="service-card" data-index="02" role="listitem">
+            <div class="card-icon" aria-hidden="true">⬡</div>
+            <h3>Motion Graphics</h3>
+            <p>Kinetic design in motion — logos, transitions, and visual effects that make brands unforgettable.</p>
+          </div>
+          <div class="service-card" data-index="03" role="listitem">
+            <div class="card-icon" aria-hidden="true">◻</div>
+            <h3>Typography Style</h3>
+            <p>Word-driven videos where type becomes the visual — bold, rhythmic, and shareable.</p>
+          </div>
+          <div class="service-card" data-index="04" role="listitem">
+            <div class="card-icon" aria-hidden="true">◎</div>
+            <h3>Podcast Editing</h3>
+            <p>Multi-cam cuts, clean audio sync, animated captions — turning raw recordings into polished content.</p>
+          </div>
+          <div class="service-card" data-index="05" role="listitem">
+            <div class="card-icon" aria-hidden="true">▲</div>
+            <h3>Finance Guru Style</h3>
+            <p>Data visualizations, clean b-roll, authority framing — videos that build trust and credibility.</p>
+          </div>
+          <div class="service-card" data-index="06" role="listitem">
+            <div class="card-icon" aria-hidden="true">❋</div>
+            <h3>Gaming Content</h3>
+            <p>High-energy highlights, commentary sync, dynamic transitions — content built for the gaming audience.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- WHY ME -->
-  <section class="section why-section">
-    <div class="container why-grid">
-      <div class="why-visual">
-        <div class="why-frame">
-          <img src="https://images.unsplash.com/photo-1536240478700-b869ad10a2eb?w=800&q=80" alt="Video editing workspace">
-          <div class="frame-corner tl"></div>
-          <div class="frame-corner tr"></div>
-          <div class="frame-corner bl"></div>
-          <div class="frame-corner br"></div>
+    <!-- WHY ME -->
+    <section class="section why-section" aria-label="Why Choose Ether Creatives">
+      <div class="container why-grid">
+        <div class="why-visual">
+          <div class="why-frame">
+            <img 
+              src="https://images.unsplash.com/photo-1536240478700-b869ad10a2eb?w=800&q=80" 
+              alt="Professional video editing workspace with color grading interface"
+              loading="lazy"
+              decoding="async">
+            <div class="frame-corner tl" aria-hidden="true"></div>
+            <div class="frame-corner tr" aria-hidden="true"></div>
+            <div class="frame-corner bl" aria-hidden="true"></div>
+            <div class="frame-corner br" aria-hidden="true"></div>
+          </div>
+        </div>
+        <div class="why-content">
+          <p class="section-tag">Why Work With Me</p>
+          <h2 class="section-title">Every Edit is a<br>Deliberate Decision</h2>
+          <p class="why-body">I don't just cut clips — I architect stories. Each project goes through a strategic lens: who's watching, what they feel, and what they do next. That's the edit that actually moves the needle. Quality over quantity, always.</p>
+          <ul class="why-list">
+            <li><span class="check">✓</span> Fast 48h turnaround on most projects</li>
+            <li><span class="check">✓</span> Unlimited revisions until you're satisfied</li>
+            <li><span class="check">✓</span> Platform-optimised formats (YT, Reels, Shorts)</li>
+            <li><span class="check">✓</span> Full communication, zero ghosting</li>
+          </ul>
+          <a href="contact.html" class="btn-primary">Let's Talk</a>
         </div>
       </div>
-      <div class="why-content">
-        <p class="section-tag">Why Work With Me</p>
-        <h2 class="section-title">Every Edit is a<br>Deliberate Decision</h2>
-        <p class="why-body">I don't just cut clips — I architect stories. Each project goes through a strategic lens: who's watching, what they feel, and what they do next. That's the edit that actually works.</p>
-        <ul class="why-list">
-          <li><span class="check">✓</span> Fast 48h turnaround on most projects</li>
-          <li><span class="check">✓</span> Unlimited revisions until you're satisfied</li>
-          <li><span class="check">✓</span> Platform-optimised formats (YT, Reels, Shorts)</li>
-          <li><span class="check">✓</span> Full communication, zero ghosting</li>
-        </ul>
-        <a href="contact.html" class="btn-primary">Let's Talk</a>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA BAND -->
-  <section class="cta-band">
-    <div class="cta-band-bg"></div>
-    <div class="container cta-band-inner">
-      <h2>Ready to Elevate<br>Your Content?</h2>
-      <a href="contact.html" class="btn-primary btn-large">Start a Project</a>
-    </div>
-  </section>
+    <!-- CTA BAND -->
+    <section class="cta-band" aria-label="Call to Action">
+      <div class="cta-band-bg" aria-hidden="true"></div>
+      <div class="container cta-band-inner">
+        <h2>Ready to Elevate<br>Your Content?</h2>
+        <a href="contact.html" class="btn-primary btn-large">Start a Project</a>
+      </div>
+    </section>
+  </main>
 
   <!-- FOOTER -->
-  <footer class="footer">
+  <footer class="footer" aria-label="Site Footer">
     <div class="container footer-inner">
       <div class="footer-brand">
         <span class="nav-logo">ETHER CREATIVES<span class="accent">.</span></span>
@@ -196,23 +234,29 @@
       </div>
       <div class="footer-links">
         <div class="footer-col">
-          <h4>Navigate</h4>
-          <a href="index-1.html">Home</a>
-          <a href="services.html">Services</a>
-          <a href="portfolio.html">Portfolio</a>
-          <a href="contact.html">Contact</a>
+          <h3>Navigate</h3>
+          <ul>
+            <li><a href="index-1.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
         </div>
         <div class="footer-col">
-          <h4>Socials</h4>
-          <a href="https://youtube.com/@YourChannelName" target="_blank" rel="noopener noreferrer">YouTube</a>
-          <a href="https://instagram.com/YourHandle" target="_blank" rel="noopener noreferrer">Instagram</a>
-          <a href="https://twitter.com/YourHandle" target="_blank" rel="noopener noreferrer">Twitter / X</a>
-          <a href="https://linkedin.com/in/YourProfile" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <h3>Socials</h3>
+          <ul>
+            <li><a href="https://youtube.com/@YourChannelName" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+            <li><a href="https://instagram.com/YourHandle" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://twitter.com/YourHandle" target="_blank" rel="noopener noreferrer">Twitter / X</a></li>
+            <li><a href="https://linkedin.com/in/YourProfile" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          </ul>
         </div>
         <div class="footer-col">
-          <h4>Contact</h4>
-          <a id="email-footer">Loading...</a>
-          <a href="contact.html">Send a Message</a>
+          <h3>Contact</h3>
+          <ul>
+            <li><a id="email-footer" href="mailto:catchimark@gmail.com">catchimark@gmail.com</a></li>
+            <li><a href="contact.html">Send a Message</a></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -222,23 +266,50 @@
     </div>
   </footer>
 
+  <style>
+    /* Screen reader only text */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    .sr-only:focus {
+      position: static;
+      width: auto;
+      height: auto;
+      overflow: visible;
+      clip: auto;
+      white-space: normal;
+    }
+  </style>
+
   <script src="main.js"></script>
   <script>
-    // Email protection — never hardcoded in HTML
-    const user = "catchimark";
-    const domain = "gmail.com";
-    const emailHref = "mailto:" + user + "@" + domain;
-    const emailText = user + "@" + domain;
+    // Email protection — dynamically set
+    document.addEventListener('DOMContentLoaded', function() {
+      const user = "catchimark";
+      const domain = "gmail.com";
+      const emailHref = "mailto:" + user + "@" + domain;
+      const emailText = user + "@" + domain;
 
-    document.getElementById("email-footer").href = emailHref;
-    document.getElementById("email-footer").textContent = emailText;
+      const emailFooter = document.getElementById("email-footer");
+      if (emailFooter) {
+        emailFooter.href = emailHref;
+        emailFooter.textContent = emailText;
+      }
 
-    // Also set mobile overlay email
-    const mobileEmail = document.getElementById("email-mobile");
-    if (mobileEmail) {
-      mobileEmail.href = emailHref;
-      mobileEmail.textContent = "Email";
-    }
+      const mobileEmail = document.getElementById("email-mobile");
+      if (mobileEmail) {
+        mobileEmail.href = emailHref;
+      }
+    });
   </script>
 </body>
 </html>
