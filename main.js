@@ -2,13 +2,104 @@
 // AETHER EDITING — MAIN.JS
 // ========================
 
-// NAV SCROLL
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav?.classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true });
+// ========================
+// CONFIGURATION
+// ========================
+const CONFIG = {
+  NAV_SCROLL_THRESHOLD: 40,
+  REVEAL_STAGGER_DELAY: 80,
+  REVEAL_THRESHOLD: 0.12,
+  FORM_ANIMATION_DURATION: 300,
+  SHAKE_DURATION: 600,
+  REVEAL_ROOT_MARGIN: '0px 0px -40px 0px',
+};
 
+// ========================
+// UTILITY FUNCTIONS
+// ========================
+
+/**
+ * Inject shake keyframe animation if not already present
+ */
+function injectShakeKeyframe() {
+  if (document.getElementById('shake-keyframes')) return;
+  const style = document.createElement('style');
+  style.id = 'shake-keyframes';
+  style.textContent = `
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      75% { transform: translateX(5px); }
+    }
+  `;
+  document.head.appendChild(style);
+}
+
+/**
+ * Validate email format
+ */
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+/**
+ * Validate form fields
+ * @returns {string[]} Array of invalid field IDs
+ */
+function validateForm(name, email, message, service) {
+  const errors = [];
+  if (!name?.trim()) errors.push('name');
+  if (!email?.trim() || !isValidEmail(email)) errors.push('email');
+  if (!message?.trim()) errors.push('message');
+  if (!service?.trim()) errors.push('service');
+  return errors;
+}
+
+/**
+ * Highlight form errors with shake animation
+ */
+function highlightFormErrors(errorFields) {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  form.querySelectorAll('input, select, textarea').forEach((el) => {
+    if (errorFields.includes(el.id)) {
+      el.classList.add('error-shake');
+    }
+  });
+
+  setTimeout(() => {
+    form.querySelectorAll('input, select, textarea').forEach((el) => {
+      el.classList.remove('error-shake');
+    });
+  }, CONFIG.SHAKE_DURATION);
+}
+
+// ========================
+// NAV SCROLL WITH THROTTLE
+// ========================
+let scrollTicking = false;
+const nav = document.getElementById('nav');
+
+window.addEventListener(
+  'scroll',
+  () => {
+    if (!scrollTicking) {
+      requestAnimationFrame(() => {
+        if (nav) {
+          nav.classList.toggle('scrolled', window.scrollY > CONFIG.NAV_SCROLL_THRESHOLD);
+        }
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
+  },
+  { passive: true }
+);
+
+// ========================
 // HAMBURGER / MOBILE MENU
+// ========================
 const hamburger = document.getElementById('hamburger');
 const mobileOverlay = document.getElementById('mobileOverlay');
 
@@ -24,97 +115,143 @@ hamburger?.addEventListener('click', () => {
   document.body.style.overflow = isOpen ? 'hidden' : '';
 });
 
-// Close overlay on Escape
-document.addEventListener('keydown', e => {
+// Close overlay on Escape key
+document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeMenu();
 });
 
-// REVEAL ON SCROLL
+// ========================
+// REVEAL ON SCROLL (OPTIMIZED)
+// ========================
 const revealEls = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      // Stagger by index among siblings
-      const siblings = [...entry.target.parentElement.querySelectorAll('.reveal')];
-      const idx = siblings.indexOf(entry.target);
-      setTimeout(() => {
-        entry.target.classList.add('visible');
-      }, idx * 80);
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+const siblingCache = new Map();
 
-revealEls.forEach(el => observer.observe(el));
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const parent = entry.target.parentElement;
 
-// PORTFOLIO FILTER
-const filterBtns = document.querySelectorAll('.filter-btn');
-const portCards = document.querySelectorAll('.port-card');
+        // Cache siblings to avoid recalculating on every intersection
+        if (!siblingCache.has(parent)) {
+          siblingCache.set(parent, [...parent.querySelectorAll('.reveal')]);
+        }
 
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const filter = btn.dataset.filter;
+        const siblings = siblingCache.get(parent);
+        const idx = siblings.indexOf(entry.target);
 
-    portCards.forEach(card => {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, idx * CONFIG.REVEAL_STAGGER_DELAY);
+
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  {
+    threshold: CONFIG.REVEAL_THRESHOLD,
+    rootMargin: CONFIG.REVEAL_ROOT_MARGIN,
+  }
+);
+
+revealEls.forEach((el) => observer.observe(el));
+
+// ========================
+// PORTFOLIO FILTER (EVENT DELEGATION)
+// ========================
+const portContainer = document.querySelector('[data-portfolio-container]');
+
+if (portContainer) {
+  portContainer.addEventListener('click', (e) => {
+    const filterBtn = e.target.closest('.filter-btn');
+    if (!filterBtn) return;
+
+    // Update active button
+    document.querySelectorAll('.filter-btn').forEach((btn) => {
+      btn.classList.remove('active');
+    });
+    filterBtn.classList.add('active');
+
+    // Filter portfolio cards
+    const filter = filterBtn.dataset.filter;
+    document.querySelectorAll('.port-card').forEach((card) => {
       const cats = card.dataset.cat || '';
       const show = filter === 'all' || cats.includes(filter);
       card.classList.toggle('hidden', !show);
     });
   });
-});
+}
 
-// CONTACT FORM
+// ========================
+// CONTACT FORM SUBMISSION
+// ========================
 function submitForm() {
-  const name = document.getElementById('name')?.value.trim();
-  const email = document.getElementById('email')?.value.trim();
-  const message = document.getElementById('message')?.value.trim();
-  const service = document.getElementById('service')?.value;
+  try {
+    const name = document.getElementById('name')?.value;
+    const email = document.getElementById('email')?.value;
+    const message = document.getElementById('message')?.value;
+    const service = document.getElementById('service')?.value;
 
-  if (!name || !email || !message || !service) {
-    // Simple shake animation on empty fields
+    // Validate all fields
+    const errors = validateForm(name, email, message, service);
+    if (errors.length > 0) {
+      highlightFormErrors(errors);
+      return;
+    }
+
+    // Show success state
     const form = document.getElementById('contactForm');
-    form?.querySelectorAll('input, select, textarea').forEach(el => {
-      if (!el.value.trim()) {
-        el.style.borderColor = '#ef4444';
-        el.style.animation = 'shake 0.3s ease';
-        setTimeout(() => {
-          el.style.animation = '';
-          el.style.borderColor = '';
-        }, 600);
-      }
-    });
-    return;
-  }
+    const success = document.getElementById('formSuccess');
 
-  // Simulate send (replace with real form submission)
-  const form = document.getElementById('contactForm');
-  const success = document.getElementById('formSuccess');
-  if (form && success) {
-    form.style.opacity = '0';
-    form.style.transform = 'translateY(8px)';
-    form.style.transition = 'all 0.3s ease';
-    setTimeout(() => {
-      form.style.display = 'none';
-      success.classList.remove('hidden');
-    }, 300);
+    if (form && success) {
+      form.style.opacity = '0';
+      form.style.transform = 'translateY(8px)';
+      form.style.transition = `all ${CONFIG.FORM_ANIMATION_DURATION}ms ease`;
+
+      setTimeout(() => {
+        form.style.display = 'none';
+        success.classList.remove('hidden');
+      }, CONFIG.FORM_ANIMATION_DURATION);
+    }
+
+    // TODO: Replace with actual form submission
+    console.log('Form submission:', { name, email, message, service });
+  } catch (error) {
+    console.error('Form submission error:', error);
   }
 }
 
+// ========================
 // FAQ TOGGLE
+// ========================
 function toggleFaq(item) {
+  if (!item?.classList) return;
+
   const isOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-  if (!isOpen) item.classList.add('open');
+  document.querySelectorAll('.faq-item').forEach((i) => {
+    i.classList.remove('open');
+  });
+
+  if (!isOpen) {
+    item.classList.add('open');
+  }
 }
 
-// Shake keyframe (injected)
-const style = document.createElement('style');
-style.textContent = `
-@keyframes shake {
-  0%,100% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  75% { transform: translateX(5px); }
-}`;
-document.head.appendChild(style);
+// ========================
+// INITIALIZATION
+// ========================
+function initializeApp() {
+  try {
+    injectShakeKeyframe();
+    console.log('Aether app initialized');
+  } catch (error) {
+    console.error('App initialization error:', error);
+  }
+}
+
+// Initialize on DOM ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initializeApp);
+} else {
+  initializeApp();
+}
