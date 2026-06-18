@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+i<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -322,5 +322,54 @@
   </footer>
 
   <script src="main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  // Fix portfolio filter
+  const portfolioGrid = document.getElementById('portfolioGrid');
+  if (portfolioGrid) {
+    portfolioGrid.setAttribute('data-portfolio-container', '');
+  }
+
+  // Video hover playback
+  document.querySelectorAll('.port-thumb video').forEach(video => {
+
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.preload = 'metadata';
+
+    const thumb = video.closest('.port-thumb');
+
+    thumb.addEventListener('mouseenter', async () => {
+      try {
+        await video.play();
+      } catch (err) {
+        console.log('Video play failed:', err);
+      }
+    });
+
+    thumb.addEventListener('mouseleave', () => {
+      video.pause();
+      video.currentTime = 0;
+    });
+
+    // Mobile support
+    thumb.addEventListener('touchstart', async () => {
+      try {
+        if (video.paused) {
+          await video.play();
+        } else {
+          video.pause();
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    });
+
+  });
+
+});
+</script>
 </body>
 </html>
