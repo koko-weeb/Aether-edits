@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ether Creative— Precision In Motion</title>
+  <title>Ether Creatives — You Create, We Provide</title>
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; img-src 'self' https: data:; frame-src https://www.youtube.com; script-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com;">
   <link rel="stylesheet" href="style-1.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -12,7 +14,7 @@
 
   <!-- NAV -->
   <nav class="nav" id="nav">
-    <a href="index.html" class="nav-logo">AETHER<span class="accent">.</span></a>
+    <a href="index.html" class="nav-logo">ETHER CREATIVES<span class="accent">.</span></a>
     <div class="nav-center">
       <span class="nav-line"></span>
     </div>
@@ -36,9 +38,9 @@
       <li><a href="contact.html" onclick="closeMenu()">Contact</a></li>
     </ul>
     <div class="mobile-socials">
-      <a href="mailto:your@email.com">Email</a>
-      <a href="#" target="_blank">YouTube</a>
-      <a href="#" target="_blank">Instagram</a>
+      <a id="email-mobile">Email</a>
+      <a href="https://youtube.com/@YourChannelName" target="_blank" rel="noopener noreferrer">YouTube</a>
+      <a href="https://instagram.com/YourHandle" target="_blank" rel="noopener noreferrer">Instagram</a>
     </div>
   </div>
 
@@ -58,8 +60,8 @@
     <div class="hero-content">
       <p class="hero-eyebrow"><span class="dot"></span> Available for Projects</p>
       <h1 class="hero-title">
-        <span class="line1">PRECISION</span>
-        <span class="line2">IN MOTION<span class="cursor-bar">|</span></span>
+        <span class="line1">YOU CREATE,</span>
+        <span class="line2">WE PROVIDE<span class="cursor-bar">|</span></span>
       </h1>
       <p class="hero-sub">Video editing that cuts through noise. From AI-generated visuals to cinematic vlogs — every frame, deliberate.</p>
       <div class="hero-cta">
@@ -189,44 +191,54 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <span class="nav-logo">AETHER<span class="accent">.</span></span>
-        <p>Precision video editing for creators who want to stand out.</p>
+        <span class="nav-logo">ETHER CREATIVES<span class="accent">.</span></span>
+        <p>Creative video editing for creators who want to stand out.</p>
       </div>
       <div class="footer-links">
         <div class="footer-col">
           <h4>Navigate</h4>
-          <a href="index.html">Home</a>
+          <a href="index-1.html">Home</a>
           <a href="services.html">Services</a>
           <a href="portfolio.html">Portfolio</a>
           <a href="contact.html">Contact</a>
         </div>
         <div class="footer-col">
           <h4>Socials</h4>
-          <a href="#" target="_blank">YouTube</a>
-          <a href="#" target="_blank">Instagram</a>
-          <a href="#" target="_blank">Twitter / X</a>
-          <a href="#" target="_blank">LinkedIn</a>
+          <a href="https://youtube.com/@YourChannelName" target="_blank" rel="noopener noreferrer">YouTube</a>
+          <a href="https://instagram.com/YourHandle" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://twitter.com/YourHandle" target="_blank" rel="noopener noreferrer">Twitter / X</a>
+          <a href="https://linkedin.com/in/YourProfile" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
         <div class="footer-col">
           <h4>Contact</h4>
-          <a 
-            <a id="email-footer">Loading...</a>
+          <a id="email-footer">Loading...</a>
           <a href="contact.html">Send a Message</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2026 Ether Creative. All rights reserved.</p>
+      <p>© 2026 Ether Creatives. All rights reserved.</p>
       <p class="footer-tag">Built with precision.</p>
     </div>
   </footer>
 
   <script src="main.js"></script>
-<script>
-  const user = "catchimark";
-  const domain = "gmail.com";
-  document.getElementById("email-footer").href = "mailto:" + user + "@" + domain;
-  document.getElementById("email-footer").textContent = user + "@" + domain;
-</script>
+  <script>
+    // Email protection — never hardcoded in HTML
+    const user = "catchimark";
+    const domain = "gmail.com";
+    const emailHref = "mailto:" + user + "@" + domain;
+    const emailText = user + "@" + domain;
+
+    document.getElementById("email-footer").href = emailHref;
+    document.getElementById("email-footer").textContent = emailText;
+
+    // Also set mobile overlay email
+    const mobileEmail = document.getElementById("email-mobile");
+    if (mobileEmail) {
+      mobileEmail.href = emailHref;
+      mobileEmail.textContent = "Email";
+    }
+  </script>
 </body>
 </html>
