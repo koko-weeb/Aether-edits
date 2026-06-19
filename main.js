@@ -162,7 +162,8 @@ revealEls.forEach((el) => observer.observe(el));
 const portContainer = document.querySelector('[data-portfolio-container]');
 
 if (portContainer) {
-  portContainer.addEventListener('click', (e) => {
+  // Buttons live in .filter-bar (outside the grid), so delegate from document.
+  document.addEventListener('click', (e) => {
     const filterBtn = e.target.closest('.filter-btn');
     if (!filterBtn) return;
 
