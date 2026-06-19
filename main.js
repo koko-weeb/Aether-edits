@@ -249,6 +249,34 @@ function initializeApp() {
     console.error('App initialization error:', error);
   }
 }
+document.querySelectorAll('.vimeo-thumb').forEach(thumb => {
+  const id = thumb.dataset.vimeoId;
+
+  // Create iframe
+  const iframe = document.createElement('iframe');
+  iframe.src = `https://player.vimeo.com/video/${id}?autopause=0&muted=1&loop=1&controls=0`;
+  iframe.allow = "autoplay; fullscreen; picture-in-picture";
+  thumb.prepend(iframe);
+
+  // Init Vimeo player
+  const player = new Vimeo.Player(iframe);
+  player.setVolume(0);
+
+  thumb.addEventListener('mouseenter', () => {
+    player.play();
+    thumb.classList.add('playing');
+  });
+
+  thumb.addEventListener('mouseleave', () => {
+    player.pause();
+    thumb.classList.remove('playing');
+  });
+
+  // Click = fullscreen
+  thumb.addEventListener('click', () => {
+    player.requestFullscreen();
+  });
+});
 
 // Initialize on DOM ready
 if (document.readyState === 'loading') {
