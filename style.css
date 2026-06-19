@@ -1857,4 +1857,10 @@ label {
   .filter-bar {
     padding: 0.75rem 1rem;
   }
+.port-card { position: relative; border-radius: 10px; overflow: hidden; background: #111; cursor: pointer; aspect-ratio: 16/9; }
+.port-card iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; opacity: 0; filter: blur(6px); transition: opacity 0.3s, filter 0.3s; pointer-events: none; }
+.port-card.hovered iframe { opacity: 1; filter: none; pointer-events: auto; }
+.port-card .card-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.45); transition: opacity 0.3s; z-index: 2; }
+.port-card.hovered .card-overlay { opacity: 0; pointer-events: none; }
+   
 }
