@@ -1,13 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script src="https://player.vimeo.com/api/player.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio — Ether Creatives</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Lazy video wrapper */
+    .vimeo-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* 16:9 */
+      background: #111;
+      cursor: pointer;
+      overflow: hidden;
+    }
+    .vimeo-wrapper iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .vimeo-wrapper .vimeo-thumb {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .vimeo-wrapper:hover .vimeo-thumb {
+      transform: scale(1.04);
+    }
+    .vimeo-wrapper .play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 56px;
+      height: 56px;
+      background: rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.6);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+      transition: background 0.2s;
+      pointer-events: none;
+    }
+    .vimeo-wrapper:hover .play-btn {
+      background: rgba(255,255,255,0.28);
+    }
+    .play-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: #fff;
+      margin-left: 3px;
+    }
+    /* Hide thumb + play btn once iframe is injected */
+    .vimeo-wrapper.loaded .vimeo-thumb,
+    .vimeo-wrapper.loaded .play-btn {
+      display: none;
+    }
+  </style>
 </head>
 <body>
 
@@ -72,10 +131,11 @@
         <!-- Project 1 -->
         <div class="port-card reveal" data-cat="ai motion">
           <div class="port-thumb">
-            <div class="vimeo-wrapper">
-              <iframe src="https://player.vimeo.com/video/1202862607?badge=0&autopause=0&autoplay=1&loop=1&muted=1&controls=0&background=1"
-                frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-                allowfullscreen loading="lazy"></iframe>
+            <div class="vimeo-wrapper" data-vimeo-id="1202862607">
+              <img class="vimeo-thumb" src="https://vumbnail.com/1202862607.jpg" alt="AI Motion Project" loading="lazy">
+              <div class="play-btn">
+                <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+              </div>
             </div>
             <div class="port-overlay" style="pointer-events: none;">
               <div class="port-info">
@@ -90,12 +150,13 @@
         </div>
 
         <!-- Project 2 -->
-      <div class="port-card reveal" data-cat="motion">
+        <div class="port-card reveal" data-cat="motion">
           <div class="port-thumb">
-            <div class="vimeo-wrapper">
-              <iframe src="https://player.vimeo.com/video/1202862610?badge=0&autopause=0&autoplay=1&loop=1&muted=1&controls=0&background=1"
-                frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-                allowfullscreen loading="lazy"></iframe>
+            <div class="vimeo-wrapper" data-vimeo-id="1202862610">
+              <img class="vimeo-thumb" src="https://vumbnail.com/1202862610.jpg" alt="Motion Graphic" loading="lazy">
+              <div class="play-btn">
+                <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+              </div>
             </div>
             <div class="port-overlay" style="pointer-events: none;">
               <div class="port-info">
@@ -105,21 +166,23 @@
             </div>
           </div>
           <div class="port-meta">
-            <span class="port-cat-tag">Motion GRaphic</span>
+            <span class="port-cat-tag">Motion Graphic</span>
           </div>
         </div>
+
         <!-- Project 3 -->
         <div class="port-card reveal" data-cat="podcast">
           <div class="port-thumb">
-            <div class="vimeo-wrapper">
-              <iframe src="https://player.vimeo.com/video/1202862602?badge=0&autopause=0&autoplay=1&loop=1&muted=1&controls=0&background=1"
-                frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-                allowfullscreen loading="lazy"></iframe>
+            <div class="vimeo-wrapper" data-vimeo-id="1202862602">
+              <img class="vimeo-thumb" src="https://vumbnail.com/1202862602.jpg" alt="Podcast Edit" loading="lazy">
+              <div class="play-btn">
+                <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+              </div>
             </div>
             <div class="port-overlay" style="pointer-events: none;">
               <div class="port-info">
                 <h4>Podcast Edit</h4>
-                <span>Multi-cam cuts & captions</span>
+                <span>Multi-cam cuts &amp; captions</span>
               </div>
             </div>
           </div>
@@ -131,10 +194,11 @@
         <!-- Project 4 -->
         <div class="port-card reveal" data-cat="ai">
           <div class="port-thumb">
-            <div class="vimeo-wrapper">
-              <iframe src="https://player.vimeo.com/video/1202862586?badge=0&autopause=0&autoplay=1&loop=1&muted=1&controls=0&background=1"
-                frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-                allowfullscreen loading="lazy"></iframe>
+            <div class="vimeo-wrapper" data-vimeo-id="1202862586">
+              <img class="vimeo-thumb" src="https://vumbnail.com/1202862586.jpg" alt="AI Visuals" loading="lazy">
+              <div class="play-btn">
+                <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+              </div>
             </div>
             <div class="port-overlay" style="pointer-events: none;">
               <div class="port-info">
@@ -151,15 +215,16 @@
         <!-- Project 5 -->
         <div class="port-card reveal" data-cat="cinematic">
           <div class="port-thumb">
-            <div class="vimeo-wrapper">
-              <iframe src="https://player.vimeo.com/video/1202862591?badge=0&autopause=0&autoplay=1&loop=1&muted=1&controls=0&background=1"
-                frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-                allowfullscreen loading="lazy"></iframe>
+            <div class="vimeo-wrapper" data-vimeo-id="1202862591">
+              <img class="vimeo-thumb" src="https://vumbnail.com/1202862591.jpg" alt="Cinematic Edit" loading="lazy">
+              <div class="play-btn">
+                <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+              </div>
             </div>
             <div class="port-overlay" style="pointer-events: none;">
               <div class="port-info">
                 <h4>Cinematic Edit</h4>
-                <span>Color grading & styling</span>
+                <span>Color grading &amp; styling</span>
               </div>
             </div>
           </div>
@@ -171,10 +236,11 @@
         <!-- Project 6 -->
         <div class="port-card reveal" data-cat="motion">
           <div class="port-thumb">
-            <div class="vimeo-wrapper">
-              <iframe src="https://player.vimeo.com/video/1202862624?badge=0&autopause=0&autoplay=1&loop=1&muted=1&controls=0&background=1"
-                frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-                allowfullscreen loading="lazy"></iframe>
+            <div class="vimeo-wrapper" data-vimeo-id="1202862624">
+              <img class="vimeo-thumb" src="https://vumbnail.com/1202862624.jpg" alt="UI Animation" loading="lazy">
+              <div class="play-btn">
+                <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+              </div>
             </div>
             <div class="port-overlay" style="pointer-events: none;">
               <div class="port-info">
@@ -191,10 +257,11 @@
         <!-- Project 7 -->
         <div class="port-card reveal" data-cat="motion">
           <div class="port-thumb">
-            <div class="vimeo-wrapper">
-              <iframe src="https://player.vimeo.com/video/1202862612?badge=0&autopause=0&autoplay=1&loop=1&muted=1&controls=0&background=1"
-                frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
-                allowfullscreen loading="lazy"></iframe>
+            <div class="vimeo-wrapper" data-vimeo-id="1202862612">
+              <img class="vimeo-thumb" src="https://vumbnail.com/1202862612.jpg" alt="Typography" loading="lazy">
+              <div class="play-btn">
+                <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+              </div>
             </div>
             <div class="port-overlay" style="pointer-events: none;">
               <div class="port-info">
@@ -301,8 +368,23 @@
 
   <script src="main.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Fix portfolio filter
+    // Lazy Vimeo loader — tap thumbnail to play
+    document.querySelectorAll('.vimeo-wrapper[data-vimeo-id]').forEach(function(wrapper) {
+      wrapper.addEventListener('click', function() {
+        if (wrapper.classList.contains('loaded')) return;
+        var id = wrapper.dataset.vimeoId;
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://player.vimeo.com/video/' + id + '?autoplay=1&badge=0&autopause=0&loop=1&muted=0';
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media');
+        iframe.setAttribute('allowfullscreen', '');
+        wrapper.appendChild(iframe);
+        wrapper.classList.add('loaded');
+      });
+    });
+
+    // Portfolio filter
+    document.addEventListener('DOMContentLoaded', function() {
       const portfolioGrid = document.getElementById('portfolioGrid');
       if (portfolioGrid) {
         portfolioGrid.setAttribute('data-portfolio-container', '');
