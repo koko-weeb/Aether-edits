@@ -1857,6 +1857,52 @@ label {
   .filter-bar {
     padding: 0.75rem 1rem;
   }
+   .vimeo-thumb {
+  position: relative;
+  aspect-ratio: 16/9;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #111;
+  cursor: pointer;
+}
+
+.vimeo-thumb iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  pointer-events: none;
+  transition: filter 0.4s ease;
+  filter: blur(8px) brightness(0.5);
+}
+
+.vimeo-thumb.playing iframe {
+  filter: none;
+  pointer-events: auto;
+}
+
+.blur-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: rgba(0,0,0,0.3);
+  transition: opacity 0.3s;
+}
+
+.vimeo-thumb.playing .blur-overlay { opacity: 0; pointer-events: none; }
+
+.play-hint {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s;
+}
+
+.vimeo-thumb.playing .play-hint { opacity: 0; }
 .port-card { position: relative; border-radius: 10px; overflow: hidden; background: #111; cursor: pointer; aspect-ratio: 16/9; }
 .port-card iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; opacity: 0; filter: blur(6px); transition: opacity 0.3s, filter 0.3s; pointer-events: none; }
 .port-card.hovered iframe { opacity: 1; filter: none; pointer-events: auto; }
