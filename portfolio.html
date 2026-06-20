@@ -8,11 +8,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Lazy video wrapper */
     .vimeo-wrapper {
       position: relative;
       width: 100%;
-      padding-top: 56.25%; /* 9:16 */
+      padding-top: 56.25%;
       background: #111;
       cursor: pointer;
     }
@@ -31,51 +30,26 @@
       object-fit: cover;
       transition: transform 0.3s ease;
     }
-    .vimeo-wrapper:hover .vimeo-thumb {
-      transform: scale(1.04);
-    }
+    .vimeo-wrapper:hover .vimeo-thumb { transform: scale(1.04); }
     .vimeo-wrapper .play-btn {
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      width: 56px;
-      height: 56px;
+      width: 56px; height: 56px;
       background: rgba(255,255,255,0.15);
       border: 2px solid rgba(255,255,255,0.6);
       border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       backdrop-filter: blur(4px);
       transition: background 0.2s;
       pointer-events: none;
     }
-    .vimeo-wrapper:hover .play-btn {
-      background: rgba(255,255,255,0.28);
-    }
-    .play-btn svg {
-      width: 20px;
-      height: 20px;
-      fill: #fff;
-      margin-left: 3px;
-    }
-    /* Hide thumb + play btn once iframe is injected */
+    .vimeo-wrapper:hover .play-btn { background: rgba(255,255,255,0.28); }
+    .play-btn svg { width: 20px; height: 20px; fill: #fff; margin-left: 3px; }
     .vimeo-wrapper.loaded .vimeo-thumb,
-    .vimeo-wrapper.loaded .play-btn {
-      display: none;
-    }
-    .port-card {
-  transition: filter 0.3s ease, opacity 0.3s ease;
-}
-.port-card.blurred {
-  filter: blur(2px);
-  opacity: 0.4;
-}
-.vimeo-wrapper.loaded .vimeo-thumb,
-.vimeo-wrapper.loaded .play-btn {
-  display: none;
-}
+    .vimeo-wrapper.loaded .play-btn { display: none; }
+    .port-card { transition: filter 0.3s ease, opacity 0.3s ease; }
+    .port-card.blurred { filter: blur(2px); opacity: 0.4; }
   </style>
 </head>
 <body>
@@ -109,9 +83,7 @@
   </div>
 
   <section class="page-hero">
-    <div class="page-hero-bg">
-      <div class="page-hero-grid"></div>
-    </div>
+    <div class="page-hero-bg"><div class="page-hero-grid"></div></div>
     <div class="container page-hero-content">
       <p class="section-tag">Work Showcase</p>
       <h1 class="page-title">150+ Projects.<br>One Standard.</h1>
@@ -119,7 +91,6 @@
     </div>
   </section>
 
-  <!-- FILTER BAR -->
   <div class="filter-bar-wrap">
     <div class="container filter-bar">
       <button class="filter-btn active" data-filter="all">All</button>
@@ -133,163 +104,105 @@
     </div>
   </div>
 
-  <!-- PORTFOLIO GRID -->
   <section class="section portfolio-section">
     <div class="container">
       <div class="portfolio-grid" id="portfolioGrid" data-portfolio-container>
 
-        <!-- Project 1 -->
         <div class="port-card reveal" data-cat="ai motion">
           <div class="port-thumb">
             <div class="vimeo-wrapper" data-vimeo-id="1202862607">
               <img class="vimeo-thumb" src="https://vumbnail.com/1202862607.jpg" alt="AI Motion Project" loading="lazy">
-              <div class="play-btn">
-                <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-              </div>
+              <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
             </div>
-            <div class="port-overlay" style="pointer-events: none;">
-              <div class="port-info">
-                <h4>AI Motion Project</h4>
-                <span>AI Generated · Motion Graphics</span>
-              </div>
+            <div class="port-overlay" style="pointer-events:none;">
+              <div class="port-info"><h4>AI Motion Project</h4><span>AI Generated · Motion Graphics</span></div>
             </div>
           </div>
-          <div class="port-meta">
-            <span class="port-cat-tag">AI Video</span>
-          </div>
+          <div class="port-meta"><span class="port-cat-tag">AI Video</span></div>
         </div>
 
-        <!-- Project 2 -->
         <div class="port-card reveal" data-cat="motion">
           <div class="port-thumb">
             <div class="vimeo-wrapper" data-vimeo-id="1202862610">
               <img class="vimeo-thumb" src="https://vumbnail.com/1202862610.jpg" alt="Motion Graphic" loading="lazy">
-              <div class="play-btn">
-                <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-              </div>
+              <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
             </div>
-            <div class="port-overlay" style="pointer-events: none;">
-              <div class="port-info">
-                <h4>Motion Graphic</h4>
-                <span>Graphic</span>
-              </div>
+            <div class="port-overlay" style="pointer-events:none;">
+              <div class="port-info"><h4>Motion Graphic</h4><span>Graphic</span></div>
             </div>
           </div>
-          <div class="port-meta">
-            <span class="port-cat-tag">Motion Graphic</span>
-          </div>
+          <div class="port-meta"><span class="port-cat-tag">Motion Graphic</span></div>
         </div>
 
-        <!-- Project 3 -->
         <div class="port-card reveal" data-cat="podcast">
           <div class="port-thumb">
             <div class="vimeo-wrapper" data-vimeo-id="1202862602">
               <img class="vimeo-thumb" src="https://vumbnail.com/1202862602.jpg" alt="Podcast Edit" loading="lazy">
-              <div class="play-btn">
-                <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-              </div>
+              <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
             </div>
-            <div class="port-overlay" style="pointer-events: none;">
-              <div class="port-info">
-                <h4>Podcast Edit</h4>
-                <span>Multi-cam cuts &amp; captions</span>
-              </div>
+            <div class="port-overlay" style="pointer-events:none;">
+              <div class="port-info"><h4>Podcast Edit</h4><span>Multi-cam cuts &amp; captions</span></div>
             </div>
           </div>
-          <div class="port-meta">
-            <span class="port-cat-tag">Podcast</span>
-          </div>
+          <div class="port-meta"><span class="port-cat-tag">Podcast</span></div>
         </div>
 
-        <!-- Project 4 -->
         <div class="port-card reveal" data-cat="ai">
           <div class="port-thumb">
             <div class="vimeo-wrapper" data-vimeo-id="1202862586">
               <img class="vimeo-thumb" src="https://vumbnail.com/1202862586.jpg" alt="AI Visuals" loading="lazy">
-              <div class="play-btn">
-                <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-              </div>
+              <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
             </div>
-            <div class="port-overlay" style="pointer-events: none;">
-              <div class="port-info">
-                <h4>AI Visuals</h4>
-                <span>Generative AI Workflow</span>
-              </div>
+            <div class="port-overlay" style="pointer-events:none;">
+              <div class="port-info"><h4>AI Visuals</h4><span>Generative AI Workflow</span></div>
             </div>
           </div>
-          <div class="port-meta">
-            <span class="port-cat-tag">AI Generated</span>
-          </div>
+          <div class="port-meta"><span class="port-cat-tag">AI Generated</span></div>
         </div>
 
-        <!-- Project 5 -->
         <div class="port-card reveal" data-cat="cinematic">
           <div class="port-thumb">
             <div class="vimeo-wrapper" data-vimeo-id="1202862591">
               <img class="vimeo-thumb" src="https://vumbnail.com/1202862591.jpg" alt="Cinematic Edit" loading="lazy">
-              <div class="play-btn">
-                <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-              </div>
+              <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
             </div>
-            <div class="port-overlay" style="pointer-events: none;">
-              <div class="port-info">
-                <h4>Cinematic Edit</h4>
-                <span>Color grading &amp; styling</span>
-              </div>
+            <div class="port-overlay" style="pointer-events:none;">
+              <div class="port-info"><h4>Cinematic Edit</h4><span>Color grading &amp; styling</span></div>
             </div>
           </div>
-          <div class="port-meta">
-            <span class="port-cat-tag">Cinematic</span>
-          </div>
+          <div class="port-meta"><span class="port-cat-tag">Cinematic</span></div>
         </div>
 
-        <!-- Project 6 -->
         <div class="port-card reveal" data-cat="motion">
           <div class="port-thumb">
             <div class="vimeo-wrapper" data-vimeo-id="1202862624">
               <img class="vimeo-thumb" src="https://vumbnail.com/1202862624.jpg" alt="UI Animation" loading="lazy">
-              <div class="play-btn">
-                <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-              </div>
+              <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
             </div>
-            <div class="port-overlay" style="pointer-events: none;">
-              <div class="port-info">
-                <h4>UI Animation</h4>
-                <span>Kinetic Design</span>
-              </div>
+            <div class="port-overlay" style="pointer-events:none;">
+              <div class="port-info"><h4>UI Animation</h4><span>Kinetic Design</span></div>
             </div>
           </div>
-          <div class="port-meta">
-            <span class="port-cat-tag">UI</span>
-          </div>
+          <div class="port-meta"><span class="port-cat-tag">UI</span></div>
         </div>
 
-        <!-- Project 7 -->
         <div class="port-card reveal" data-cat="motion">
           <div class="port-thumb">
             <div class="vimeo-wrapper" data-vimeo-id="1202862612">
               <img class="vimeo-thumb" src="https://vumbnail.com/1202862612.jpg" alt="Typography" loading="lazy">
-              <div class="play-btn">
-                <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
-              </div>
+              <div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
             </div>
-            <div class="port-overlay" style="pointer-events: none;">
-              <div class="port-info">
-                <h4>Typography</h4>
-                <span>Kinetic Text Edit</span>
-              </div>
+            <div class="port-overlay" style="pointer-events:none;">
+              <div class="port-info"><h4>Typography</h4><span>Kinetic Text Edit</span></div>
             </div>
           </div>
-          <div class="port-meta">
-            <span class="port-cat-tag">Typography</span>
-          </div>
+          <div class="port-meta"><span class="port-cat-tag">Typography</span></div>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
   <section class="section testimonials-section">
     <div class="container">
       <div class="section-header centered">
@@ -302,10 +215,7 @@
           <p>"The editing transformed my raw footage into something I'm genuinely proud to post. The pacing is perfect and the colour grade is stunning."</p>
           <div class="testi-author">
             <div class="testi-avatar">MR</div>
-            <div>
-              <strong>Mike R.</strong>
-              <span>Finance YouTuber · 85K subs</span>
-            </div>
+            <div><strong>Mike R.</strong><span>Finance YouTuber · 85K subs</span></div>
           </div>
         </div>
         <div class="testi-card reveal">
@@ -313,10 +223,7 @@
           <p>"Delivered ahead of schedule, communicated throughout, and the final product exceeded every expectation. Will absolutely be working together again."</p>
           <div class="testi-author">
             <div class="testi-avatar">SA</div>
-            <div>
-              <strong>Sofia A.</strong>
-              <span>Travel Vlogger · 200K subs</span>
-            </div>
+            <div><strong>Sofia A.</strong><span>Travel Vlogger · 200K subs</span></div>
           </div>
         </div>
         <div class="testi-card reveal">
@@ -324,10 +231,7 @@
           <p>"Best gaming editor I've worked with. Knows the format, knows the audience, and consistently delivers bangers. Non-negotiable part of my team now."</p>
           <div class="testi-author">
             <div class="testi-avatar">KP</div>
-            <div>
-              <strong>KP Plays</strong>
-              <span>Gaming Channel · 1.2M subs</span>
-            </div>
+            <div><strong>KP Plays</strong><span>Gaming Channel · 1.2M subs</span></div>
           </div>
         </div>
       </div>
@@ -376,220 +280,112 @@
     </div>
   </footer>
 
- <script src="https://player.vimeo.com/api/player.js"></script>
-<script>
-  const allPlayers = new Map(); // wrapper -> Vimeo.Player
-  let currentlyPlaying = null;
-
-  function pauseAll(except) {
-    allPlayers.forEach((player, wrapper) => {
-      if (wrapper !== except) {
-        player.pause();
-        wrapper.classList.remove('playing');
-      }
-    });
-  }
-
-  function setBlur(activeWrapper) {
-    document.querySelectorAll('.vimeo-wrapper').forEach(w => {
-      if (w !== activeWrapper) {
-        w.closest('.port-card').classList.add('blurred');
-      } else {
-        w.closest('.port-card').classList.remove('blurred');
-      }
-    });
-  }
-
-  function clearBlur() {
-    document.querySelectorAll('.port-card').forEach(c => c.classList.remove('blurred'));
-  }
-
-  document.querySelectorAll('.vimeo-wrapper[data-vimeo-id]').forEach(wrapper => {
-    const id = wrapper.dataset.vimeoId;
-
-    // Preload iframe (muted, no autoplay yet)
-    const iframe = document.createElement('iframe');
-    iframe.src = `https://player.vimeo.com/video/${id}?badge=0&autopause=0&loop=1&muted=1&controls=0&background=1`;
-    iframe.setAttribute('frameborder', '0');
-    iframe.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
-    iframe.style.position = 'absolute';
-    iframe.style.inset = '0';
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.style.border = 'none';
-    wrapper.appendChild(iframe);
-
-    const player = new Vimeo.Player(iframe);
-    allPlayers.set(wrapper, player);
-
-    // DESKTOP — hover to play
+  <script src="main.js"></script>
+  <script>
     const isMobile = () => window.matchMedia('(hover: none)').matches;
 
-    wrapper.addEventListener('mouseenter', () => {
-      if (isMobile()) return;
-      pauseAll(wrapper);
-      setBlur(wrapper);
-      player.setVolume(0);
-      player.play();
-      wrapper.classList.add('playing');
-      currentlyPlaying = wrapper;
-    });
+    function initVimeo() {
+      const allPlayers = new Map();
+      let currentlyPlaying = null;
 
-    wrapper.addEventListener('mouseleave', () => {
-      if (isMobile()) return;
-      player.pause();
-      wrapper.classList.remove('playing');
-      clearBlur();
-      currentlyPlaying = null;
-    });
-
-    // MOBILE — tap to play/pause
-    wrapper.addEventListener('click', () => {
-      if (!isMobile()) return;
-
-      if (wrapper.classList.contains('playing')) {
-        player.pause();
-        wrapper.classList.remove('playing');
-        clearBlur();
-        currentlyPlaying = null;
-      } else {
-        pauseAll(wrapper);
-        setBlur(wrapper);
-        player.setVolume(0);
-        player.play();
-        wrapper.classList.add('playing');
-        currentlyPlaying = wrapper;
+      function pauseAll(except) {
+        allPlayers.forEach((player, wrapper) => {
+          if (wrapper !== except) {
+            player.pause();
+            wrapper.classList.remove('playing');
+          }
+        });
       }
-    });
-  });
 
-  // Hide thumbnail once iframe is ready
-  allPlayers.forEach((player, wrapper) => {
-    player.on('loaded', () => {
-      wrapper.classList.add('loaded');
-    });
-  });
-</script>
-  <script src="main.js"></script>
-  
-  <!-- naya script yahan -->
-  <script src="https://player.vimeo.com/api/player.js"></script>
-  <script>
-    const allPlayers = new Map();
-  let currentlyPlaying = null;
-
-  const isMobile = () => window.matchMedia('(hover: none)').matches;
-
-  function pauseAll(except) {
-    allPlayers.forEach((player, wrapper) => {
-      if (wrapper !== except) {
-        player.pause();
-        wrapper.classList.remove('playing');
+      function setBlur(activeWrapper) {
+        document.querySelectorAll('.vimeo-wrapper').forEach(w => {
+          w.closest('.port-card').classList.toggle('blurred', w !== activeWrapper);
+        });
       }
-    });
-  }
 
-  function setBlur(activeWrapper) {
-    document.querySelectorAll('.vimeo-wrapper').forEach(w => {
-      w.closest('.port-card').classList.toggle('blurred', w !== activeWrapper);
-    });
-  }
+      function clearBlur() {
+        document.querySelectorAll('.port-card').forEach(c => c.classList.remove('blurred'));
+      }
 
-  function clearBlur() {
-    document.querySelectorAll('.port-card').forEach(c => c.classList.remove('blurred'));
-  }
+      document.querySelectorAll('.vimeo-wrapper[data-vimeo-id]').forEach(wrapper => {
+        const id = wrapper.dataset.vimeoId;
 
-  document.querySelectorAll('.vimeo-wrapper[data-vimeo-id]').forEach(wrapper => {
-    const id = wrapper.dataset.vimeoId;
+        // DESKTOP — preload + hover to play
+        if (!isMobile()) {
+          const iframe = document.createElement('iframe');
+          iframe.src = 'https://player.vimeo.com/video/' + id + '?badge=0&autopause=0&loop=1&muted=1&controls=0&background=1';
+          iframe.setAttribute('frameborder', '0');
+          iframe.setAttribute('allow', 'autoplay; fullscreen');
+          iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:none;';
+          wrapper.appendChild(iframe);
 
-    // ================================
-    // DESKTOP — preload + hover to play
-    // ================================
-    if (!isMobile()) {
-      const iframe = document.createElement('iframe');
-      iframe.src = `https://player.vimeo.com/video/${id}?badge=0&autopause=0&loop=1&muted=1&controls=0&background=1`;
-      iframe.setAttribute('frameborder', '0');
-      iframe.setAttribute('allow', 'autoplay; fullscreen');
-      iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:none;';
-      wrapper.appendChild(iframe);
+          const player = new Vimeo.Player(iframe);
+          allPlayers.set(wrapper, player);
+          player.on('loaded', () => wrapper.classList.add('loaded'));
 
-      const player = new Vimeo.Player(iframe);
-      allPlayers.set(wrapper, player);
+          wrapper.addEventListener('mouseenter', () => {
+            pauseAll(wrapper);
+            setBlur(wrapper);
+            player.setVolume(0);
+            player.play();
+            wrapper.classList.add('playing');
+          });
 
-      player.on('loaded', () => wrapper.classList.add('loaded'));
+          wrapper.addEventListener('mouseleave', () => {
+            player.pause();
+            wrapper.classList.remove('playing');
+            clearBlur();
+          });
+        }
 
-      wrapper.addEventListener('mouseenter', () => {
-        pauseAll(wrapper);
-        setBlur(wrapper);
-        player.setVolume(0);
-        player.play();
-        wrapper.classList.add('playing');
-      });
+        // MOBILE — tap to inject + play
+        else {
+          wrapper.addEventListener('click', () => {
+            if (wrapper.classList.contains('playing')) {
+              const player = allPlayers.get(wrapper);
+              if (player) player.pause();
+              wrapper.classList.remove('playing');
+              clearBlur();
+              currentlyPlaying = null;
+              return;
+            }
 
-      wrapper.addEventListener('mouseleave', () => {
-        player.pause();
-        wrapper.classList.remove('playing');
-        clearBlur();
+            pauseAll(wrapper);
+            setBlur(wrapper);
+
+            if (allPlayers.has(wrapper)) {
+              const player = allPlayers.get(wrapper);
+              player.play();
+              wrapper.classList.add('playing');
+              currentlyPlaying = wrapper;
+              return;
+            }
+
+            // First tap — inject iframe
+            const iframe = document.createElement('iframe');
+            iframe.src = 'https://player.vimeo.com/video/' + id + '?badge=0&autopause=0&loop=1&muted=0&controls=0&autoplay=1';
+            iframe.setAttribute('frameborder', '0');
+            iframe.setAttribute('allow', 'autoplay; fullscreen');
+            iframe.setAttribute('allowfullscreen', '');
+            iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:none;';
+            wrapper.appendChild(iframe);
+            wrapper.classList.add('loaded');
+            wrapper.classList.add('playing');
+            currentlyPlaying = wrapper;
+
+            const player = new Vimeo.Player(iframe);
+            allPlayers.set(wrapper, player);
+          });
+        }
       });
     }
 
-    // ================================
-    // MOBILE — tap to inject + play
-    // ================================
-    else {
-      wrapper.addEventListener('click', () => {
-
-        // Already playing — pause it
-        if (wrapper.classList.contains('playing')) {
-          const player = allPlayers.get(wrapper);
-          if (player) player.pause();
-          wrapper.classList.remove('playing');
-          clearBlur();
-          currentlyPlaying = null;
-          return;
-        }
-
-        // Pause everything else
-        pauseAll(wrapper);
-        setBlur(wrapper);
-
-        // If iframe already injected, just play
-        if (allPlayers.has(wrapper)) {
-          const player = allPlayers.get(wrapper);
-          player.play();
-          wrapper.classList.add('playing');
-          currentlyPlaying = wrapper;
-          return;
-        }
-
-        // First tap — inject iframe fresh
-        const iframe = document.createElement('iframe');
-        iframe.src = `https://player.vimeo.com/video/${id}?badge=0&autopause=0&loop=1&muted=0&controls=0&autoplay=1`;
-        iframe.setAttribute('frameborder', '0');
-        iframe.setAttribute('allow', 'autoplay; fullscreen');
-        iframe.setAttribute('allowfullscreen', '');
-        iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:none;';
-        wrapper.appendChild(iframe);
-        wrapper.classList.add('loaded');
-        wrapper.classList.add('playing');
-        currentlyPlaying = wrapper;
-
-        const player = new Vimeo.Player(iframe);
-        allPlayers.set(wrapper, player);
-      });
-    }
-  });
+    // Load Vimeo SDK then init
+    const vimeoScript = document.createElement('script');
+    vimeoScript.src = 'https://player.vimeo.com/api/player.js';
+    vimeoScript.onload = initVimeo;
+    document.head.appendChild(vimeoScript);
   </script>
-      });
-    });
-<script>
-    // Portfolio filter
-    document.addEventListener('DOMContentLoaded', function() {
-      const portfolioGrid = document.getElementById('portfolioGrid');
-      if (portfolioGrid) {
-        portfolioGrid.setAttribute('data-portfolio-container', '');
-      }
-    });
-  </script>
+
 </body>
 </html>
