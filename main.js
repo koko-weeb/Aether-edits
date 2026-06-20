@@ -251,8 +251,6 @@ function initializeApp() {
     console.error('App initialization error:', error);
   }
 }
-document.querySelectorAll('.vimeo-thumb').forEach(thumb => {
-  const id = thumb.dataset.vimeoId;
 
   // Create iframe
   const iframe = document.createElement('iframe');
