@@ -65,6 +65,17 @@
     .vimeo-wrapper.loaded .play-btn {
       display: none;
     }
+    .port-card {
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+.port-card.blurred {
+  filter: blur(2px);
+  opacity: 0.4;
+}
+.vimeo-wrapper.loaded .vimeo-thumb,
+.vimeo-wrapper.loaded .play-btn {
+  display: none;
+}
   </style>
 </head>
 <body>
@@ -365,20 +376,101 @@
     </div>
   </footer>
 
-  <script src="main.js"></script>
+ <script src="https://player.vimeo.com/api/player.js"></script>
+<script>
+  const allPlayers = new Map(); // wrapper -> Vimeo.Player
+  let currentlyPlaying = null;
+
+  function pauseAll(except) {
+    allPlayers.forEach((player, wrapper) => {
+      if (wrapper !== except) {
+        player.pause();
+        wrapper.classList.remove('playing');
+      }
+    });
+  }
+
+  function setBlur(activeWrapper) {
+    document.querySelectorAll('.vimeo-wrapper').forEach(w => {
+      if (w !== activeWrapper) {
+        w.closest('.port-card').classList.add('blurred');
+      } else {
+        w.closest('.port-card').classList.remove('blurred');
+      }
+    });
+  }
+
+  function clearBlur() {
+    document.querySelectorAll('.port-card').forEach(c => c.classList.remove('blurred'));
+  }
+
+  document.querySelectorAll('.vimeo-wrapper[data-vimeo-id]').forEach(wrapper => {
+    const id = wrapper.dataset.vimeoId;
+
+    // Preload iframe (muted, no autoplay yet)
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://player.vimeo.com/video/${id}?badge=0&autopause=0&loop=1&muted=1&controls=0&background=1`;
+    iframe.setAttribute('frameborder', '0');
+    iframe.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
+    iframe.style.position = 'absolute';
+    iframe.style.inset = '0';
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.border = 'none';
+    wrapper.appendChild(iframe);
+
+    const player = new Vimeo.Player(iframe);
+    allPlayers.set(wrapper, player);
+
+    // DESKTOP — hover to play
+    const isMobile = () => window.matchMedia('(hover: none)').matches;
+
+    wrapper.addEventListener('mouseenter', () => {
+      if (isMobile()) return;
+      pauseAll(wrapper);
+      setBlur(wrapper);
+      player.setVolume(0);
+      player.play();
+      wrapper.classList.add('playing');
+      currentlyPlaying = wrapper;
+    });
+
+    wrapper.addEventListener('mouseleave', () => {
+      if (isMobile()) return;
+      player.pause();
+      wrapper.classList.remove('playing');
+      clearBlur();
+      currentlyPlaying = null;
+    });
+
+    // MOBILE — tap to play/pause
+    wrapper.addEventListener('click', () => {
+      if (!isMobile()) return;
+
+      if (wrapper.classList.contains('playing')) {
+        player.pause();
+        wrapper.classList.remove('playing');
+        clearBlur();
+        currentlyPlaying = null;
+      } else {
+        pauseAll(wrapper);
+        setBlur(wrapper);
+        player.setVolume(0);
+        player.play();
+        wrapper.classList.add('playing');
+        currentlyPlaying = wrapper;
+      }
+    });
+  });
+
+  // Hide thumbnail once iframe is ready
+  allPlayers.forEach((player, wrapper) => {
+    player.on('loaded', () => {
+      wrapper.classList.add('loaded');
+    });
+  });
+</script>
   <script>
-    // Lazy Vimeo loader — tap thumbnail to play
-    document.querySelectorAll('.vimeo-wrapper[data-vimeo-id]').forEach(function(wrapper) {
-      wrapper.addEventListener('click', function() {
-        if (wrapper.classList.contains('loaded')) return;
-        var id = wrapper.dataset.vimeoId;
-        var iframe = document.createElement('iframe');
-        iframe.src = 'https://player.vimeo.com/video/' + id + '?autoplay=1&badge=0&autopause=0&loop=1&muted=0';
-        iframe.setAttribute('frameborder', '0');
-        iframe.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media');
-        iframe.setAttribute('allowfullscreen', '');
-        wrapper.appendChild(iframe);
-        wrapper.classList.add('loaded');
       });
     });
 
