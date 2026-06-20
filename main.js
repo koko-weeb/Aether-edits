@@ -100,12 +100,10 @@ window.addEventListener(
 // ========================
 // HAMBURGER / MOBILE MENU
 // ========================
-const hamburger = document.getElementById('hamburger');
-const mobileOverlay = document.getElementById('mobileOverlay');
 
 function closeMenu() {
-  hamburger?.classList.remove('open');
-  mobileOverlay?.classList.remove('open');
+  document.getElementById('hamburger')?.classList.remove('open');
+  document.getElementById('mobileOverlay')?.classList.remove('open');
   document.body.style.overflow = '';
 }
 
@@ -282,5 +280,33 @@ function initializeApp() {
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initializeApp);
 } else {
-  initializeApp();
+
+{
+  function initializeApp() {
+  try {
+    injectShakeKeyframe();
+
+    // Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+
+    hamburger?.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('open');
+      mobileOverlay?.classList.toggle('open', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        hamburger?.classList.remove('open');
+        mobileOverlay?.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
+
+    console.log('Aether app initialized');
+  } catch (error) {
+    console.error('App initialization error:', error);
+  }
+};
 }
