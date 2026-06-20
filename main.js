@@ -186,39 +186,41 @@ if (portContainer) {
 // ========================
 // CONTACT FORM SUBMISSION
 // ========================
-function submitForm() {
+emailjs.init("fFPxg6eAkPAimBZiK");
+async function submitForm() {  
   try {
     const name = document.getElementById('name')?.value;
     const email = document.getElementById('email')?.value;
     const message = document.getElementById('message')?.value;
     const service = document.getElementById('service')?.value;
+    const budget = document.getElementById('budget')?.value;  // 👈 budget bhi add karo
 
-    // Validate all fields
     const errors = validateForm(name, email, message, service);
     if (errors.length > 0) {
       highlightFormErrors(errors);
       return;
     }
 
-    // Show success state
+    // 👇 TODO wali line hatao, ye daalo
+    await emailjs.send("service_qkitbvv", "template_0ww6gpf", {
+      name, email, message, service, budget
+    });
+
     const form = document.getElementById('contactForm');
     const success = document.getElementById('formSuccess');
-
     if (form && success) {
       form.style.opacity = '0';
       form.style.transform = 'translateY(8px)';
       form.style.transition = `all ${CONFIG.FORM_ANIMATION_DURATION}ms ease`;
-
       setTimeout(() => {
         form.style.display = 'none';
         success.classList.remove('hidden');
       }, CONFIG.FORM_ANIMATION_DURATION);
     }
 
-    // TODO: Replace with actual form submission
-    console.log('Form submission:', { name, email, message, service });
   } catch (error) {
     console.error('Form submission error:', error);
+    alert("Something went wrong. Please try again.");  // 👈 user ko bhi batao
   }
 }
 
